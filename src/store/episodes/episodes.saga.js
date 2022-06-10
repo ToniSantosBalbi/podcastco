@@ -5,7 +5,7 @@ import {
   GET_EPISODES_SUCCESS,
   GET_EPISODES_FAILURE,
 } from '../actions';
-import {getEpisode} from '../../api/queries'
+import {getEpisode} from '../../api/queries';
 
 function* getEpisodes(action) {
   try {

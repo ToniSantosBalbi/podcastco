@@ -5,7 +5,7 @@ import {
   GET_PODCAST_SUCCESS,
   GET_PODCAST_FAILURE,
 } from '../actions';
-import {getPodcast} from '../../api/queries'
+import {getPodcast} from '../../api/queries';
 
 function* getPodcastSaga(action) {
   try {

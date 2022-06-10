@@ -11,7 +11,5 @@ export const getEpisode = podcastSlug => {
 };
 
 export const getPlayer = podcastSlug => {
-  return axios.get(
-    `https://public-api.pod.co/podcasts/${podcastSlug}/player`,
-  );
+  return axios.get(`https://public-api.pod.co/podcasts/${podcastSlug}/player`);
 };

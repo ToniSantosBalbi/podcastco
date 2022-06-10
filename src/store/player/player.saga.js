@@ -8,7 +8,7 @@ import {
   GET_PLAYER_SETTINGS_SUCCESS,
   GET_PLAYER_SETTINGS_FAILURE,
 } from '../actions';
-import {getPlayer} from '../../api/queries'
+import {getPlayer} from '../../api/queries';
 
 function* updatePlayerStatus(action) {
   try {
