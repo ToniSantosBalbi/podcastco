@@ -5,13 +5,11 @@ import {
   GET_EPISODES_SUCCESS,
   GET_EPISODES_FAILURE,
 } from '../actions';
+import {getEpisode} from '../../api/queries'
 
 function* getEpisodes(action) {
   try {
-    const {data, error} = yield call(
-      axios.get,
-      `https://public-api.pod.co/podcasts/${action.podcastSlug}/episodes`,
-    );
+    const {data, error} = yield call(getEpisode, action.podcastSlug);
     if (data) {
       yield put({
         ...action,

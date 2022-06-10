@@ -8,6 +8,7 @@ import {
   GET_PLAYER_SETTINGS_SUCCESS,
   GET_PLAYER_SETTINGS_FAILURE,
 } from '../actions';
+import {getPlayer} from '../../api/queries'
 
 function* updatePlayerStatus(action) {
   try {
@@ -26,10 +27,7 @@ function* updatePlayerStatus(action) {
 
 function* getPlayerSettings(action) {
   try {
-    const {data, error} = yield call(
-      axios.get,
-      `https://public-api.pod.co/podcasts/${action.podcastSlug}/player`,
-    );
+    const {data, error} = yield call(getPlayer, action.podcastSlug);
     if (data.data) {
       yield put({
         ...action,

@@ -5,13 +5,11 @@ import {
   GET_PODCAST_SUCCESS,
   GET_PODCAST_FAILURE,
 } from '../actions';
+import {getPodcast} from '../../api/queries'
 
-function* getPodcast(action) {
+function* getPodcastSaga(action) {
   try {
-    const {data, error} = yield call(
-      axios.get,
-      `https://public-api.pod.co/podcasts/${action.podcastSlug}`,
-    );
+    const {data, error} = yield call(getPodcast, action.podcastSlug);
     if (data) {
       yield put({
         ...action,
@@ -35,5 +33,5 @@ function* getPodcast(action) {
 }
 
 export default function* watchPodcast() {
-  yield takeEvery(GET_PODCAST, getPodcast);
+  yield takeEvery(GET_PODCAST, getPodcastSaga);
 }
